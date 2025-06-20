@@ -1,0 +1,99 @@
+# FicTGNN .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyTorch
+*.pth
+*.pt
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Data files - EXCLUDE ALL DATA DIRECTORIES AND LARGE FILES
+data/
+*/data/
+experiments/data/
+causality_analysis/data/
+embedding_generation/data/
+
+# Large data files
+*.csv
+*.json
+*.xlsx
+*.pdf
+*.npy
+*.pkl
+*.h5
+*.hdf5
+
+# Keep essential files
+!README.md
+!*/README.md
+!requirements.txt
+!setup.py
+!LICENSE
+
+# Output files
+outputs/
+logs/
+results/
+intermediate_*
+*.log
+
+# Temporary files
+temp/
+tmp/
+cache/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# API keys and secrets
+*.key
+secrets.json
+config/secrets.yaml

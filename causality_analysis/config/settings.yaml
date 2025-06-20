@@ -1,0 +1,111 @@
+# 반도체 산업 분석 시스템 설정
+# Semiconductor Industry Analysis System Configuration
+
+# 모델 설정
+model:
+  input_dim: 28
+  hidden_dim: 256
+  output_dim: 128
+  num_heads: 8
+  dropout: 0.1
+  learning_rate: 0.001
+
+# 임베딩 설정
+embedding:
+  target_variance: 0.95
+  min_dims: 12
+  max_dims: 25
+  text_weight: 0.5
+  financial_weight: 0.3
+  industry_weight: 0.2
+
+# 차원 축소 설정
+dimension_reduction:
+  financial_target_variance: 0.90
+  financial_min_dims: 8
+  financial_max_dims: 12
+  random_state: 42
+
+# 그래프 구축 설정  
+graph:
+  base_threshold: 0.6
+  max_lag: 4
+  temporal_weight_decay: true
+  causal_threshold_decay: 0.05
+
+# 시각화 설정
+visualization:
+  figure_width: 1400
+  figure_height: 900
+  marker_size: 8
+  line_width: 2
+  opacity: 0.8
+  years:
+    - "2020"
+    - "2021" 
+    - "2022"
+    - "2023"
+    - "2024"
+  year_colors:
+    "2020": "#FF6B6B"
+    "2021": "#4ECDC4"
+    "2022": "#45B7D1"
+    "2023": "#96CEB4"
+    "2024": "#FFEAA7"
+
+# 데이터 설정
+data:
+  financial_features:
+    - "유동자산"
+    - "비유동자산" 
+    - "자산총계"
+    - "유동부채"
+    - "비유동부채"
+    - "부채총계"
+    - "자본총계"
+    - "매출액"
+    - "영업이익"
+    - "당기순이익"
+    - "영업이익률"
+    - "ROA"
+    - "ROE"
+    - "부채비율"
+  
+  chunk_size: 100
+  memory_threshold: 0.8
+  
+# 파일 경로 설정
+paths:
+  financial_data: "../complete_semiconductor_dataset_20250619_221652.csv"
+  embeddings: "../catgnn_experiment/semiconductor_multimodal_embeddings_with_financial/semiconductor_embeddings/embeddings.npy"
+  metadata: "../catgnn_experiment/semiconductor_multimodal_embeddings_with_financial/semiconductor_embeddings/metadata.json"
+  output_dir: "outputs"
+  
+# 로깅 설정
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  filename: "causality_analysis.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+
+# 성능 설정
+performance:
+  enable_monitoring: true
+  memory_monitoring: true
+  time_monitoring: true
+  profile_memory: false
+  gc_threshold: 100
+
+# 분석 설정
+analysis:
+  influence_threshold: 0.85
+  max_companies: 5
+  top_k_statements: 20
+  max_hops: 3
+
+# 테스트 설정
+testing:
+  test_data_size: 10
+  tolerance: 1e-6
+  random_seed: 42 
